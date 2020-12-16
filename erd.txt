@@ -1,0 +1,32 @@
+# Modify this code to update the DB schema diagram.
+# To reset the sample schema, replace everything with
+# two dots ('..' - without quotes).
+
+card_holder
+-
+id PK INT
+name VARCHAR(255)
+
+credit_card
+-
+card PK VARCHAR(255)
+id_card_holder FK >- card_holder.id INT
+
+merchant_category
+-
+id PK INT
+name VARCHAR(255)
+
+merchant
+-
+id PK INT
+name VARCHAR(255)
+id_merchant_category FK >- merchant_category.id INT
+
+transactions
+-
+id PK INT
+date TIMESTAMP
+amount FLOAT
+card FK >- credit_card.card VARCHAR(255)
+id_merchant FK >- merchant.id INT
